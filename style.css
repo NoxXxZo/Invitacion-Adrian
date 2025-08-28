@@ -1,0 +1,384 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Comic Sans MS", cursive;
+  background: #fff0d9;
+  color: #a55e3d;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #fc9736;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #fc9736;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Intro screen */
+#intro-screen {
+  position: fixed;
+  inset: 0;
+  background: #fff0d9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.envelope-container img {
+  width: 200px;
+  animation: pulse 1.5s infinite;
+}
+.envelope-container p {
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Sección inicio */
+#inicio {
+  text-align: center;
+  padding: 120px 20px 60px;
+}
+.fiesta-title {
+  font-size: 2.5rem;
+  color: #a55e3d;
+  text-shadow: 0 0 10px white, 0 0 20px #fc9736;
+  animation: verticalMove 4s infinite linear;
+}
+@keyframes verticalMove {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.foto-adrian {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 20px auto; /* centrado horizontal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Marco animado */
+.foto-adrian::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 8px;
+  background: conic-gradient(from 0deg, #fc9736, #a55e3d, #fff0d9, #fc9736);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 8px),
+    black 0
+  );
+  mask: radial-gradient(farthest-side, transparent calc(100% - 8px), black 0);
+  animation: rotateBorder 6s linear infinite;
+  z-index: 0;
+}
+
+/* Imagen fija */
+.foto-adrian img {
+  position: relative;
+  z-index: 1;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(252, 151, 54, 0.6);
+}
+
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nombre-adrian img {
+  width: 300px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.music-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #fc9736;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.miscumple {
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+}
+
+/* Dedicatoria */
+.dedicatoria-text {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Fecha */
+#fecha {
+  text-align: center;
+  padding: 60px 20px;
+}
+.fecha-evento {
+  font-size: 2rem;
+  color: #fc9736;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px white;
+  }
+  to {
+    text-shadow: 0 0 20px #a55e3d;
+  }
+}
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+#countdown div {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Calendar buttons */
+.calendar-buttons a {
+  display: inline-block;
+  margin: 15px;
+  background: #a55e3d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+/* Mapa */
+#ubicacion {
+  text-align: center;
+  padding: 60px 20px;
+}
+.map-container iframe {
+  width: 300px;
+  height: 200px;
+  border: 5px solid #fc9736;
+  justify-content: center;
+  border-radius: 15px;
+  margin: 20px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.map-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #fc9736;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+/* RSVP */
+#rsvp {
+  text-align: center;
+}
+.rsvp-btn {
+  display: inline-block;
+  margin: 40px auto;
+  background: #a55e3d;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+/* Capibaras decorativas */
+.capibara {
+  position: absolute;
+  width: 100px;
+  z-index: 0;
+}
+.cap1 {
+  top: 100px;
+  left: 30px;
+}
+.cap2 {
+  top: 300px;
+  right: 50px;
+}
+.cap3 {
+  bottom: 200px;
+  left: 60px;
+}
+.cap4 {
+  bottom: 100px;
+  right: 40px;
+}
+
+/* Separador */
+.divider {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+  background: #fff0d9; /* mismo color de fondo para integrarse */
+}
+
+.divider img {
+  width: 80px;
+  height: auto;
+  animation: bounce 3s infinite ease-in-out;
+}
+
+/* que no todas salten al mismo tiempo */
+.divider img:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.divider img:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.divider img:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+#particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* para que quede detrás */
+}
+.envelope-container {
+  text-align: center;
+  z-index: 1;
+}
+.envelope-container p {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  color: #965232; /* para que resalte */
+  font-weight: bold;
+  text-shadow: 1px 1px 3px #fff;
+}
+#capibara-explosion {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* no bloquea clics */
+  overflow: hidden;
+  z-index: 5;
+}
+
+.capibara-particle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0;
+  transform: scale(0.5) rotate(0deg);
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}

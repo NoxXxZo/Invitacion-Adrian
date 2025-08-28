@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación de Adrián</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Pantalla inicial -->
+    <div id="intro-screen">
+      <canvas id="particles"></canvas>
+      <div class="envelope-container">
+        <img src="assets/img/sobre.png" alt="Sobre" class="envelope" />
+        <p>Presiona para ver la invitación</p>
+      </div>
+      <div id="capibara-explosion"></div>
+    </div>
+
+    <!-- Header con menú -->
+    <header>
+      <div class="logo">🎉 Invitación</div>
+      <nav id="navbar">
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#dedicatoria">Dedicatoria</a></li>
+          <li><a href="#fecha">Fecha</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+          <li><a href="#rsvp">Confirmar</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+      <!-- Inicio -->
+      <section id="inicio">
+        <h1 class="fiesta-title">Mi Fiesta de Cumpleaños</h1>
+        <div class="foto-adrian">
+          <img src="assets/img/adrian.png" alt="Adrián" />
+        </div>
+        <div class="nombre-adrian">
+          <img src="assets/img/nombre.png" alt="Nombre Adrián" />
+        </div>
+        <button id="music-btn" class="music-btn">⏸ Pausa</button>
+        <img
+          src="assets/img/miscumple.png"
+          alt="Mis Cumpleaños"
+          class="miscumple"
+        />
+      </section>
+
+      <div class="divider">
+        <img src="assets/img/cap1.png" alt="Capibara" />
+        <img src="assets/img/cap2.png" alt="Capibara" />
+        <img src="assets/img/cap3.png" alt="Capibara" />
+        <img src="assets/img/cap4.png" alt="Capibara" />
+      </div>
+
+      <!-- Dedicatoria -->
+      <section id="dedicatoria">
+        <p class="dedicatoria-text">
+          Queridos amigos, ¡estoy muy feliz de invitarles a celebrar mi
+          cumpleaños! Habrá juegos, globos y mucha diversión. ¡No faltes!
+        </p>
+      </section>
+
+      <div class="divider">
+        <img src="assets/img/cap1.png" alt="Capibara" />
+        <img src="assets/img/cap2.png" alt="Capibara" />
+        <img src="assets/img/cap3.png" alt="Capibara" />
+        <img src="assets/img/cap4.png" alt="Capibara" />
+      </div>
+
+      <!-- Fecha -->
+      <section id="fecha">
+        <h2>Reserva esta fecha:</h2>
+        <h3 class="fecha-evento">18 de Diciembre de 2025</h3>
+        <p>Solo falta:</p>
+        <div id="countdown">
+          <div><span id="days">0</span><small>Días</small></div>
+          <div><span id="hours">0</span><small>Horas</small></div>
+          <div><span id="minutes">0</span><small>Minutos</small></div>
+        </div>
+        <div class="calendar-buttons">
+          <a id="google-cal" target="_blank">Google Calendar</a>
+          <a id="apple-cal" download="cumple_adrian.ics">iPhone Calendar</a>
+        </div>
+      </section>
+
+      <div class="divider">
+        <img src="assets/img/cap1.png" alt="Capibara" />
+        <img src="assets/img/cap2.png" alt="Capibara" />
+        <img src="assets/img/cap3.png" alt="Capibara" />
+        <img src="assets/img/cap4.png" alt="Capibara" />
+      </div>
+
+      <!-- Ubicación -->
+      <section id="ubicacion">
+        <h2>Ubicación del evento</h2>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=..."
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <a
+          href="https://maps.google.com/?q=-33.45,-70.666"
+          target="_blank"
+          class="map-btn"
+          >Ver ubicación</a
+        >
+      </section>
+
+      <div class="divider">
+        <img src="assets/img/cap1.png" alt="Capibara" />
+        <img src="assets/img/cap2.png" alt="Capibara" />
+        <img src="assets/img/cap3.png" alt="Capibara" />
+        <img src="assets/img/cap4.png" alt="Capibara" />
+      </div>
+
+      <!-- Confirmar asistencia -->
+      <section id="rsvp">
+        <a
+          href="https://wa.me/521234567890?text=Hola%20confirmo%20mi%20asistencia"
+          target="_blank"
+          class="rsvp-btn"
+          >Confirmar asistencia</a
+        >
+      </section>
+    </main>
+
+    <!-- Capibaras decorativas -->
+    <img src="assets/img/cap1.png" class="capibara cap1" />
+    <img src="assets/img/cap2.png" class="capibara cap2" />
+    <img src="assets/img/cap3.png" class="capibara cap3" />
+    <img src="assets/img/cap4.png" class="capibara cap4" />
+
+    <audio id="bg-music" src="./assets/music/cancion.mp3" loop></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
