@@ -30,6 +30,64 @@ function drawParticles() {
   requestAnimationFrame(drawParticles);
 }
 drawParticles();
+// Ajustar canvas al redimensionar ventana
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas(); // lo llamamos una vez al inicio
+// Función genérica para inicializar partículas en cualquier canvas
+function initParticles(canvasId, color = "#fc9736", count = 50) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  let particles = [];
+
+  function createParticles() {
+    particles = [];
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 3 + 2,
+        dx: (Math.random() - 0.5) * 1,
+        dy: (Math.random() - 0.5) * 1,
+      });
+    }
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = color;
+    particles.forEach((p) => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    });
+    requestAnimationFrame(drawParticles);
+  }
+
+  createParticles();
+  drawParticles();
+
+  window.addEventListener("resize", () => {
+    createParticles(); // regenerar partículas al cambiar tamaño
+  });
+}
+
+// Llamar en la intro
+initParticles("particles", "#fc9736", 50);
+
+// Llamar en la página principal
+initParticles("particles-main", "#fc9736", 40); // otro color opcional
 
 function explodeCapibaras() {
   const explosion = document.getElementById("capibara-explosion");
@@ -159,3 +217,11 @@ function updateCountdown() {
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
+//calendario
+const googleCal = document.getElementById("google-cal");
+googleCal.href =
+  "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+  "&text=Cumpleaños+de+Adrián" +
+  "&dates=20251218T210000Z/20251219T030000Z" + // UTC: empieza 18 dic 2025 21:00, termina 19 dic 03:00
+  "&details=¡Te+espero+para+festejar!" +
+  "&location=Dinamarca+3851,+Calama";
