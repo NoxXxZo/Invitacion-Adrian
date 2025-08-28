@@ -287,6 +287,7 @@ header {
   text-decoration: none;
   font-weight: bold;
   animation: pulse 1.5s infinite;
+  margin-bottom: 100px;
 }
 
 /* Capibaras decorativas */
@@ -381,4 +382,75 @@ header {
   opacity: 0;
   transform: scale(0.5) rotate(0deg);
   transition: transform 1s ease-out, opacity 1s ease-out;
+}
+.capibara-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* detrás de todo */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.capibara-bg img {
+  position: absolute;
+  width: 70px;
+  opacity: 0.5;
+  animation: fallCap 15s linear infinite;
+}
+
+/* animación caída */
+@keyframes fallCap {
+  0% {
+    transform: translateY(-120vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
+
+.capibara-bg img {
+  position: absolute;
+  width: 70px;
+  opacity: 0.6;
+  animation: fallCap 15s linear infinite;
+}
+
+/* posiciones + delays negativos para que empiecen en caída */
+.capibara-bg img:nth-child(1) {
+  left: 10%;
+  animation-delay: -3s;
+}
+.capibara-bg img:nth-child(2) {
+  left: 30%;
+  animation-delay: -7s;
+}
+.capibara-bg img:nth-child(3) {
+  left: 60%;
+  animation-delay: -11s;
+}
+.capibara-bg img:nth-child(4) {
+  left: 80%;
+  animation-delay: -15s;
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: -250px;
+    opacity: 100;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 110vh;
+    opacity: 100;
+  }
+}
+
+.balloon-capibara {
+  position: fixed;
+  bottom: -200px;
+  width: 180px;
+  z-index: 3000;
+  animation: floatUp 20s linear infinite;
 }

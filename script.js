@@ -118,6 +118,32 @@ document.querySelectorAll(".divider").forEach((div) => {
     div.appendChild(img);
   }
 });
+function lanzarCapibaras() {
+  const container = document.body; // o algún contenedor específico
+  const total = 3; // cuántas capibaras quieres flotando a la vez
+
+  for (let i = 0; i < total; i++) {
+    const img = document.createElement("img");
+    img.src = "assets/img/miscumple.png";
+    img.classList.add("balloon-capibara");
+
+    // posición horizontal aleatoria (10% a 90%)
+    img.style.left = Math.floor(Math.random() * 80 + 10) + "%";
+
+    // retraso aleatorio para que no suban todas juntas
+    img.style.animationDelay = Math.random() * 10 + "s";
+
+    container.appendChild(img);
+
+    // cuando termine una subida, lo volvemos a reposicionar
+    img.addEventListener("animationiteration", () => {
+      img.style.left = Math.floor(Math.random() * 80 + 10) + "%";
+    });
+  }
+}
+
+// llamar al inicio
+lanzarCapibaras();
 
 // Countdown
 function updateCountdown() {
