@@ -9,6 +9,12 @@ body {
   color: #a55e3d;
   overflow-x: hidden;
 }
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  scroll-padding-top: 80px; /* ajusta este valor al alto de tu header */
+}
 
 /* Header */
 header {
@@ -24,8 +30,8 @@ header {
   z-index: 1000;
 }
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: normal;
   color: white;
 }
 .nav-links {
@@ -230,12 +236,39 @@ header {
 #countdown {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 20px; /* espacio entre bloques */
   margin-top: 20px;
 }
+
 #countdown div {
-  text-align: center;
-  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column; /* número arriba, texto abajo */
+  align-items: center;
+  font-size: 2rem;
+  color: #a55e3d;
+  position: relative; /* necesario para el separador */
+}
+
+#countdown div:not(:last-child)::after {
+  content: " : "; /* el separador */
+  position: absolute;
+  right: -19px; /* ajusta distancia */
+  top: 20%; /* posición vertical */
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fc9736; /* color festivo */
+}
+
+#countdown span {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#countdown small {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #fc9736;
+  font-weight: bold;
 }
 
 /* Calendar buttons */
@@ -453,4 +486,30 @@ header {
   width: 180px;
   z-index: 3000;
   animation: floatUp 20s linear infinite;
+}
+footer {
+  background: #fc9736;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1000;
+}
+
+.footer-content a {
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+  transition: color 0.3s;
+}
+
+.footer-content a:hover {
+  color: #ffffff;
+}
+
+.footer-content p {
+  margin: 5px 0;
 }

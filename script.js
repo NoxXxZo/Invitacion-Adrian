@@ -147,7 +147,7 @@ lanzarCapibaras();
 
 // Countdown
 function updateCountdown() {
-  const eventDate = new Date("2025-12-18T00:00:00");
+  const eventDate = new Date("2025-12-18T00:18:00");
   const now = new Date();
   const diff = eventDate - now;
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
