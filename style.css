@@ -138,6 +138,12 @@ header {
   align-items: center;
 }
 
+.foto-adrian img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%; /* 👈 mueve la foto hacia abajo */
+}
 /* Marco animado */
 .foto-adrian::before {
   content: "";
