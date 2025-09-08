@@ -205,23 +205,33 @@ lanzarCapibaras();
 
 // Countdown
 function updateCountdown() {
-  const eventDate = new Date("2025-12-18T00:18:00");
+  const eventDate = new Date("2025-09-13T18:00:00-03:00"); // 13 de septiembre 2025, 18:00 hora Chile
   const now = new Date();
   const diff = eventDate - now;
+
+  if (diff <= 0) {
+    // ya es el día del evento
+    document.getElementById("countdown").style.display = "none";
+    document.getElementById("event-message").textContent = "🎉 ¡Es Hoy! 🎉";
+    return;
+  }
+
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
   document.getElementById("days").textContent = days;
   document.getElementById("hours").textContent = hours;
   document.getElementById("minutes").textContent = minutes;
 }
-setInterval(updateCountdown, 1000);
-updateCountdown();
+
+setInterval(updateCountdown, 1000 * 60); // se actualiza cada minuto
+updateCountdown(); // se ejecuta al cargar
 //calendario
 const googleCal = document.getElementById("google-cal");
 googleCal.href =
   "https://calendar.google.com/calendar/render?action=TEMPLATE" +
   "&text=Cumpleaños+de+Adrián" +
-  "&dates=20251218T210000Z/20251219T030000Z" + // UTC: empieza 18 dic 2025 21:00, termina 19 dic 03:00
+  "&dates=20250913T200000Z/20250914T020000Z" + // UTC: empieza 13 sep 21:00, termina 14 sep 02:00
   "&details=¡Te+espero+para+festejar!" +
-  "&location=Dinamarca+3851,+Calama";
+  "&location=Sta.+María+2144,+Calama,+Chile";
