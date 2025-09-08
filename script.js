@@ -235,3 +235,13 @@ googleCal.href =
   "&dates=20250913T200000Z/20250914T020000Z" + // UTC: empieza 13 sep 21:00, termina 14 sep 02:00
   "&details=¡Te+espero+para+festejar!" +
   "&location=Sta.+María+2144,+Calama,+Chile";
+// 🚫 Bloquear click derecho en toda la página
+document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+// 🚫 Bloquear arrastrar imágenes
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("img").forEach((img) => {
+    img.setAttribute("draggable", "false");
+    img.style.pointerEvents = "none"; // evita arrastrar o abrir menú contextual
+  });
+});
