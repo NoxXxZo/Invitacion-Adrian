@@ -205,7 +205,7 @@ lanzarCapibaras();
 
 // Countdown
 function updateCountdown() {
-  const eventDate = new Date("2025-09-13T18:00:00-03:00"); // 13 de septiembre 2025, 18:00 hora Chile
+  const eventDate = new Date("2025-09-13T17:00:00-03:00"); // 13 de septiembre 2025, 18:00 hora Chile
   const now = new Date();
   const diff = eventDate - now;
 
