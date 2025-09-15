@@ -212,7 +212,8 @@ function updateCountdown() {
   if (diff <= 0) {
     // ya es el día del evento
     document.getElementById("countdown").style.display = "none";
-    document.getElementById("event-message").textContent = "🎉 ¡Es Hoy! 🎉";
+    document.getElementById("event-message").textContent =
+      "🎉 ¡Gracias por haber asistido! 🎉";
     return;
   }
 
